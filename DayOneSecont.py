@@ -42,17 +42,16 @@ for num in Lines:
     if (1+CisloRadku)%4==0:
         hodnotaA = hodnotaA + int(num)
         if (Porovnani!=0):
-            print(int(num))
             if Porovnani < hodnotaA:
                 Porovnani = hodnotaA
                 Vysledek = Vysledek + 1
-                print(A, ' = ', Porovnani, "increased", Vysledek)
+                # print(A, ' = ', Porovnani, "increased", Vysledek)
             else:
                 Porovnani = hodnotaA
-                print(A, ' = ', Porovnani, "decreased",'a')
+                # print(A, ' = ', Porovnani, "decreased",'a')
         else:
             Porovnani = hodnotaA
-            print(A, ' = ', hodnotaA, 'privni hodnota')
+            # print(A, ' = ', hodnotaA, 'privni hodnota')
         hodnotaA = 0
         CisloPromenne = CisloPromenne + 1
         A = list[CisloPromenne]
@@ -66,10 +65,10 @@ for num in Lines:
         if Porovnani < hodnotaB:
             Porovnani = hodnotaB
             Vysledek = Vysledek + 1
-            print(B, ' = ', Porovnani, "increased", Vysledek)
+            # print(B, ' = ', Porovnani, "increased", Vysledek)
         else:
             Porovnani = hodnotaB
-            print(B, ' = ', Porovnani, "decreased",'bb')
+            # print(B, ' = ', Porovnani, "decreased",'bb')
         hodnotaB = 0
         CisloPromenne = CisloPromenne + 1
         B = list[CisloPromenne]
@@ -85,11 +84,10 @@ for num in Lines:
         if Porovnani < hodnotaC:
             Porovnani = hodnotaC
             Vysledek = Vysledek + 1
-            print(C, ' = ', Porovnani, "increased ", Vysledek)
+            # print(C, ' = ', Porovnani, "increased ", Vysledek)
         else:
             Porovnani = hodnotaC
-            print(C, ' = ', Porovnani, "decreased", 'c')
-            print(CisloRadku)
+            # print(C, ' = ', Porovnani, "decreased", 'c')
 
         hodnotaC = 0
         CisloPromenne = CisloPromenne + 1
@@ -104,10 +102,10 @@ for num in Lines:
         if Porovnani < hodnotaD:
             Porovnani = hodnotaD
             Vysledek = Vysledek + 1
-            print(D, ' = ', Porovnani, "increased", Vysledek)
+            # print(D, ' = ', Porovnani, "increased", Vysledek)
         else:
             Porovnani = hodnotaD
-            print(D, ' = ', Porovnani, "decreased", 'd')
+            # print(D, ' = ', Porovnani, "decreased", 'd')
 
         hodnotaD = 0
         CisloPromenne = CisloPromenne + 1
@@ -116,7 +114,7 @@ for num in Lines:
     elif CisloRadku > 3 and (CisloRadku-3)%4!=0 and PocetRadku+3-CisloRadku>=3:
         hodnotaD = hodnotaD + int(num)
 
-print(Vysledek)
+print("Zvýšeno je celkem: ",Vysledek)
 
 
 
