@@ -3,17 +3,16 @@ Lines = file.readlines()
 
 for Column in range(0,12):
     globals()[f'Column{Column}'] = 0
-    
-for Line in Lines:
-    for Column in range(0,12):
-        if int(Line[Column]) == 1:
-
-            globals()[f'Column{Column}']= globals()[f'Column{Column}']+1
-        else:
-            globals()[f'Column{Column}'] = globals()[f'Column{Column}'] - 1
 
 x = ''
 y = ''
+
+for Line in Lines:
+    for Column in range(0,12):
+        if int(Line[Column]) == 1:
+            globals()[f'Column{Column}']= globals()[f'Column{Column}']+1
+        else:
+            globals()[f'Column{Column}'] = globals()[f'Column{Column}'] - 1
 
 for Column in range(0,12):
     if globals()[f'Column{Column}'] > 0:
