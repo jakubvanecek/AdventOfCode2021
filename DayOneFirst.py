@@ -7,7 +7,7 @@ delka=len(Lines)
 
 print(delka)
 
-y=0
+y = 0
 x = int(Lines[0])
 
 
