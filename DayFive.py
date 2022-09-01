@@ -59,6 +59,57 @@ class Sea:
             if (xx1 == xx2 and yy1 == yy2):
                 self.board[yy1, xx1] = self.board[yy1, xx1] + 1
 
+    def set_diagonal(self, venture_number):
+        xx1 = x1[venture_number]
+        xx2 = x2[venture_number]
+        yy1 = y1[venture_number]
+        yy2 = y2[venture_number]
+
+        x_range = []
+        y_range = []
+
+        if((xx1 < xx2 and yy1 > yy2) or (xx1 > xx2 and yy1 < yy2) or (xx1 < xx2 and yy1 < yy2) or (xx1 > xx2 and yy1 > yy2)):
+            if ((xx1 < xx2 and yy1 < yy2) or (xx1 > xx2 and yy1 > yy2)):
+                if (xx1 > xx2 and yy1 > yy2):
+                    xx2 = xx1
+                    xx1 = x2[venture_number]
+
+                    yy2 = yy1
+                    yy1 = y2[venture_number]
+
+                for x in range(int(xx1), int(xx2) + 1):
+                    x_range.append(x)
+                for y in range(yy1, yy2 + 1):
+                    y_range.append(y)
+            elif((xx1 < xx2 and yy1 > yy2) or (xx1 > xx2 and yy1 < yy2)):
+                temp_range = []
+                if (xx1 > xx2 and yy1 < yy2):
+                    xx2 = xx1
+                    xx1 = x2[venture_number]
+
+                else:
+                    yy2 = yy1
+                    yy1 = y2[venture_number]
+
+                for x in range(xx1, xx2 + 1):
+                    x_range.append(x)
+
+                for y in range(yy1, yy2 + 1):
+                    temp_range.append(y)
+
+                lenght = len(x_range)
+
+                for l in range(0,lenght):
+                    y_range.append(temp_range[lenght-l-1])
+
+            lenght = len(x_range)
+
+            for l in range(0,lenght):
+                self.board[y_range[l], x_range[l]] = self.board[y_range[l], x_range[l]] + 1
+
+
+
+
     def checkResult(self):
         result = 0
         for numbers in self.board:
@@ -73,6 +124,14 @@ for number in range(0,len(x1)):
     horizontal.setVerticalOrHorizontal(number)
 
 result = horizontal.checkResult()
+print('Result:' + str(result))
+
+vertical = Sea()
+for number in range(0, len(x1)):
+    vertical.setVerticalOrHorizontal(number)
+    vertical.set_diagonal(number)
+
+result = vertical.checkResult()
 print('Result:' + str(result))
 
 
